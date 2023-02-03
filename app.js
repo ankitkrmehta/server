@@ -4,7 +4,7 @@ import router from "./routes/user-routes.js";
 import blogRouter from "./routes/blog-routes.js";
 
 import cors from "cors";
-import dotenv from "dotenv";
+import dotenv from 'dotenv';
 
 const app = express(); //all functionality of express js given to express var
 dotenv.config();
