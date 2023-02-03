@@ -11,7 +11,7 @@ dotenv.config();
 
 app.use(cors()); //use cores before every middleware to disbles browsers cors privacy
 app.use(express.json()); 
-//to tell app to receive json data instead of body-parser
+//to tell app to receive json data instead of body-parser //
 
 app.use("/api/user" ,router); //http://localhost:5000/api/user
 app.use("/api/blog", blogRouter); //upper router was for user router
