@@ -1,0 +1,7 @@
+//app.use(middleware) is called every time a request is sent to the server.
+app.use("/api", (req, res, next) => {
+    res.send("Hello world");
+}); //Only thing that it should be invoked before app.get
+
+
+
