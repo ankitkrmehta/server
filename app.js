@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
   res.send("Server is up and running");
 });
 
-mongoose.connect(process.env.CONNECTION_URL)
+mongoose.connect(`${process.env.CONNECTION_URL}`)
     .then(()=> app.listen(process.env.PORT || 5000))
     .then(()=> console.log("Connected to DataBase and listening to 5000"))
     .catch((err) => console.log(err));
