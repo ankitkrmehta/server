@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
+import bodyParser from "body-parser";
 import router from "./routes/user-routes.js";
 import blogRouter from "./routes/blog-routes.js";
 
@@ -19,7 +20,14 @@ app.get("/", (req, res) => {
   res.send("Server is up and running");
 });
 
-mongoose.connect(`${process.env.CONNECTION_URL}`)
-    .then(()=> app.listen(process.env.PORT || 5000))
-    .then(()=> console.log("Connected to DataBase and listening to 5000"))
-    .catch((err) => console.log(err));
+const PORT = process.env.PORT||5000;
+mongoose.set('strictQuery', true)
+
+mongoose.connect(process.env.CONNECTION_URL,{useNewUrlParser: true, useUnifiedTopology:true})
+    .then(() => app.listen(PORT, () => console.log(`Server running on port: ${PORT}`)))
+    .catch((error) => console.log(error.message));
+
+// mongoose.connect(`${process.env.CONNECTION_URL}`)
+//     .then(()=> app.listen(process.env.PORT || 5000))
+//     .then(()=> console.log("Connected to DataBase and listening to 5000"))
+//     .catch((err) => console.log(err));
